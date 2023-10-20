@@ -1,8 +1,8 @@
-export function Footer(){
+export function Schedule(){
 
     return (
         <section>
-            <h1>Footer</h1>
+            <h1>Schedule</h1>
         </section>
     )
 }

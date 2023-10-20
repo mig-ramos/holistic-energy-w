@@ -1,8 +1,8 @@
-export function Footer(){
+export function About(){
 
     return (
         <section>
-            <h1>Footer</h1>
+            <h1>About</h1>
         </section>
     )
 }

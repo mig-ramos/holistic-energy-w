@@ -1,8 +1,8 @@
-export function Footer(){
+export function Hero(){
 
     return (
         <section>
-            <h1>Footer</h1>
+            <h1>Hero</h1>
         </section>
     )
 }
