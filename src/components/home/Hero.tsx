@@ -1,7 +1,7 @@
 export function Hero(){
 
     return (
-        <section>
+        <section className={`max-w-6xl`}>
             <h1>Hero</h1>
         </section>
     )
