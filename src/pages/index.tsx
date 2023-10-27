@@ -4,6 +4,7 @@ import { Hero } from "../components/home/Hero";
 import { About } from "../components/home/About";
 import { Schedule } from "../components/home/Schedule";
 import { Contact } from "../components/home/Contact";
+import { Terapies } from "../components/home/Terapies";
 
 export default function Home() {
 
@@ -19,6 +20,7 @@ export default function Home() {
       <LayoutPublic>
         <Hero />
         <About />
+        <Terapies />
         <Schedule />
         <Contact />
       </LayoutPublic>
