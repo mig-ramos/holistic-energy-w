@@ -3,8 +3,6 @@ import mim from "../../../public/images/mim.png";
 
 export function About() {
   return (
-    // <dir className={`flex w-11/12 mx-auto justify-center`}>
-
     <section
       className={`
     flex flex-col bg-white dark:bg-gray-800

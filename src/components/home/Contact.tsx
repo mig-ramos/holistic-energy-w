@@ -1,8 +1,63 @@
-export function Contact(){
+import Image from "next/image";
+import mapa from "../../../public/images/mapa.png";
+import iconMap from "../../../public/images/iconMap.png";
+import email from "../../../public/images/email.png";
+import schedule from "../../../public/images/schedule.png";
+import instagram from "../../../public/images/instagram.png";
+import youtube from "../../../public/images/youtube.png";
 
-    return (
-        <section>
-            <h1>Contact</h1>
-        </section>
-    )
+export function Contact() {
+  return (
+    <section
+      className={`
+    flex flex-col bg-lime-100 dark:bg-gray-800
+    dark:text-gray-200 w-full py-4
+ `}
+    >
+      <div
+        className={`
+    flex w-11/12 mx-auto justify-center
+`}
+      >
+        <div className={`w-1/2  text-start`}>
+          <div className={`border-s-8 border-green-500   p-4`}>
+            <h3 className={`text-gray-600 text-xl`}>Redes sociais</h3>
+            <h2 className={`font-bold text-3xl`}>Onde fica!</h2>
+          </div>
+
+          <div className={`text-xl text-gray-700 p-4`}>
+            <div className="flex items-center mt-2">
+              <Image src={iconMap} width={32} alt="Mapa local" />
+              <span className="ml-4">Av. Paulista, 000 - Bela Vista - SP</span>
+            </div>
+            <div className="flex items-center mt-2">
+              <Image src={email} width={32} alt="Email" />
+              <span className="ml-4">terapeuta@terapeura.com</span>
+            </div>
+            <div className="flex items-center mt-2">
+              <Image src={schedule} width={32} alt="Agendamento" />
+              <span className="ml-4">
+                Atendimento: ver horários disponíveis
+              </span>
+            </div>
+            <div className="flex items-center mt-6">
+              <span className="flex items-center mr-6">
+                Siga-me nas minhas redes sociais:{" "}
+              </span>
+              <Image
+                src={instagram}
+                width={28}
+                alt="Instagram"
+                className="mr-6"
+              />
+              <Image src={youtube} width={32} alt="Youtube" />
+            </div>
+          </div>
+        </div>
+        <div className={`flex justify-center items-center w-1/2  p-4`}>
+          <Image src={mapa} height={240} alt="Mapa local" />
+        </div>
+      </div>
+    </section>
+  );
 }
