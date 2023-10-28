@@ -6,7 +6,7 @@ export function Header() {
   let linkActive ='text-orange-500';
   return (
     <header
-      className={`w-full bg-green-50 dark:bg-gray-900 dark:text-gray-100 font-bold text-xl`}
+      className={`w-full bg-lime-50 dark:bg-gray-900 dark:text-gray-100 font-bold text-xl`}
     >
       <nav className={`max-w-6xl flex items-center h-18 mx-auto`}>
         <div className="flex items-center justify-center">
