@@ -11,7 +11,7 @@ export function About() {
     >
       <div
         className={`
-    flex w-11/12 mx-auto justify-center
+    flex flex-col lg:w-11/12 md:flex-row mx-auto justify-center items-center
 `}
       >
         <div className={`w-2/3  text-start`}>

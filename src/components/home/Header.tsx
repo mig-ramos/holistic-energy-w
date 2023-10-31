@@ -1,20 +1,42 @@
+"use client"
 import { ActiveLink } from "../ActiveLink";
 import Image from "next/image";
 import Logo from "public/images/Logo-B.svg";
+import LogoDark from "public/images/logo-dark.svg";
+import { AuthContext } from "@/data/contexts/AuthContext";
+import AppContext from "@/data/contexts/AppContext";
+import { useContext } from "react";
 
 export function Header() {
-  let linkActive ='text-orange-500';
+  const { signOut, isAuthenticated } = useContext(AuthContext);
+  const { tema } = useContext(AppContext);
+  let linkActive = "text-orange-500";
+
   return (
     <header
       className={`w-full bg-lime-50 dark:bg-gray-900 dark:text-gray-100 font-bold text-xl`}
     >
-      <nav className={`max-w-6xl flex items-center h-18 mx-auto`}>
+      <nav className={`lg:max-w-6xl flex flex-col items-center h-auto lg:h-18 mx-auto lg:flex-row`}>
         <div className="flex items-center justify-center">
           <ActiveLink href={"/"}>
-            <Image src={Logo} alt="Logo do site" height={38} placeholder={`empty`} />
+            {tema === "" ? (
+              <Image
+                src={Logo}
+                alt="Logo do site"
+                height={38}
+                placeholder={`empty`}
+              />
+            ) : (
+              <Image
+                src={LogoDark}
+                alt="Logo do site"
+                height={38}
+                placeholder={`empty`}
+              />
+            )}
           </ActiveLink>
         </div>
-        <div className={`flex-grow ml-6`}>
+        <div className={`flex flex-col md:ml-6 md:flex-row`}>
           <ActiveLink href={"/"} activeClassName={linkActive}>
             <span>Home</span>
           </ActiveLink>
@@ -30,9 +52,6 @@ export function Header() {
           <ActiveLink href={"/dashboard"} activeClassName={linkActive}>
             <span>Área do Cliente</span>
           </ActiveLink>
-        </div>
-        <div>
-          <button className={`hover:text-red-500 font-bold text-xl mx-6`} onClick={() => alert('Saindo')}>Sair</button>
         </div>
       </nav>
     </header>

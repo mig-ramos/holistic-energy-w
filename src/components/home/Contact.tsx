@@ -16,10 +16,10 @@ export function Contact() {
     >
       <div
         className={`
-    flex w-11/12 mx-auto justify-center
+    flex flex-col md:flex-row w-11/12 mx-auto justify-center
 `}
       >
-        <div className={`w-1/2  text-start`}>
+        <div className={`w-full md:w-1/2  text-start`}>
           <div className={`border-s-8 border-green-500   p-4`}>
             <h3 className={`text-gray-600 text-xl`}>Redes sociais</h3>
             <h2 className={`font-bold text-3xl`}>Onde fica!</h2>
@@ -54,7 +54,8 @@ export function Contact() {
             </div>
           </div>
         </div>
-        <div className={`flex justify-center items-center w-1/2  p-4`}>
+        <div className={`flex flex-col justify-center items-center w-full md:w-1/2  p-4`}>
+          <h2 className={`text-2xl font-semibold my-2`}>Local</h2>
           <Image src={mapa} height={240} alt="Mapa local" />
         </div>
       </div>

@@ -16,5 +16,5 @@ export function ActiveLink({
   const className = asPath === rest.href ? activeClassName : "";
   // se a rota/pagina que estamos acessando for igual ao link que ele clicou então ativamos o classname
 
-  return <Link {...rest} className="p-3 m-1 rounded-full hover:text-green-500 dark:hover:text-gray-400">{cloneElement(children, { className })}</Link>;
+  return <Link {...rest} className="md:p-3 m-1 rounded-full hover:text-green-500 dark:hover:text-gray-400">{cloneElement(children, { className })}</Link>;
 }

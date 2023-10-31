@@ -8,7 +8,7 @@ interface LayoutPublicProps {
 
 export default function LayoutPublic(props: LayoutPublicProps) {
   return (
-    <div className={`light`}>
+    <div className={`ligth`}>
       <Header />
       <Conteudo>{props.children}</Conteudo>
       <Footer />

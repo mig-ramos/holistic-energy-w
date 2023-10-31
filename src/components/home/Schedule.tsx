@@ -12,8 +12,8 @@ export function Schedule() {
       <div
         className={`w-11/12 mx-auto justify-center`}
       >
-        <div className={`flex`}>
-          <div className={`w-2/3 text-start border-s-8 border-green-500   p-4`}>
+        <div className={`flex flex-col md:flex-row`}>
+          <div className={`w-full md:w-1/2 lg:w-2/3 text-start border-s-8 border-green-500   p-4`}>
             <p className={`text-gray-600 text-2xl`}>
                 Manifestou algum interesse em alguma Terapia,
             </p>
@@ -27,8 +27,8 @@ export function Schedule() {
                 veja os horários disponiveis!
             </p>
           </div> 
-          <div className={`w-1/3 flex justify-center items-center p-4`}>
-          <button className={`border-orange-700 bg-orange-200 border-2 hover:bg-orange-100 rounded-full p-4 w-full flex items-center justify-center`} onClick={() => alert('Agendar')}>
+          <div className={`w-full md:w-1/2 lg:w-1/3 flex justify-center items-center p-4`}>
+          <button className={`border-orange-700 bg-orange-200 border-2 hover:bg-orange-100 rounded-xl p-4 w-full flex items-center justify-center`} onClick={() => alert('Agendar')}>
             <Image src={schedule} width={48} alt="Agendamento" />
             <span className="ml-6 text-xl">Veja horários disponíveis</span>
             </button> 
