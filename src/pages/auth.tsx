@@ -1,8 +1,6 @@
 import { useState, useContext } from "react";
-import LayoutPublic from "../components/home/LayoutPublic";
 import AuthInput from "@/components/auth/AuthInput";
 import Image from "next/image";
-import figura from "public/images/terapia-floral.png";
 import imgLoading from "public/loading.gif";
 import { toast } from "react-toastify";
 
@@ -14,19 +12,25 @@ import { Header } from "../components/home/Header";
 
 export default function Auth() {
   const [modo, setModo] = useState<"login" | "cadastro">("login");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { signIn, isAuthenticated } = useContext(AuthContext);
+  const { signIn, isAuthenticated, signUp } = useContext(AuthContext);
 
   function redirectPage() {
     router.push("/");
   }
 
   function clearForm() {
-    setEmail("");
-    setPassword("");
+    setName('');
+    setEmail('');
+    setRole('');
+    setPassword('');
+    setPasswordConfirm('');
   }
 
   async function submeter() {
@@ -46,7 +50,29 @@ export default function Auth() {
       // clearForm();
       setLoading(false);
     } else {
-      console.log("cadastrar");
+      if (
+        name === "" ||
+        email === "" ||
+        password === "" ||
+        passwordConfirm === ""
+      ) {
+        toast.warning("PREENCHA OS DADOS...");
+        return;
+      }
+      if (password !== passwordConfirm) {
+        toast.warning("As SENHAS são diferentes...");
+        return;
+      }
+      setLoading(true);
+      let data = {
+        name,
+        email,
+        password,
+      };
+      await signUp(data);
+      clearForm();
+      setModo("login");
+      setLoading(false);
     }
   }
 
@@ -55,14 +81,22 @@ export default function Auth() {
       <Head>
         <title>Login</title>
       </Head>
-      
+
       <Header />
-      <div className={`flex-col m-10 w-full md:w-1/2 lg:w-1/3 mx-auto`}>      
-        <h1 className={`text-3xl font-bold mb-5`}>
+      <div className={`flex flex-col w-11/12 sm:w-9/12 md:w-8/12 lg:w-5/12 mx-auto`}>
+        <h1 className={`text-3xl font-bold mt-3`}>
           {modo === "login"
             ? "Entre com a sua conta"
             : "Cadastre-se na plataforma"}
         </h1>
+        <AuthInput
+          label="Nome"
+          tipo="text"
+          valor={name}
+          valorMudou={setName}
+          obrigatorio
+          naoRenderizarQuando={modo === "login"}
+        />
         <AuthInput
           label="Email"
           tipo="email"
@@ -80,10 +114,10 @@ export default function Auth() {
         <AuthInput
           label="Confirmação de Senha"
           tipo="password"
-          valor={password}
-          valorMudou={setPassword}
+          valor={passwordConfirm}
+          valorMudou={setPasswordConfirm}
           obrigatorio
-          naoRenderizarQuando={true}
+          naoRenderizarQuando={modo === "login"}
         />
         <button
           onClick={submeter}
@@ -103,6 +137,26 @@ export default function Auth() {
           />
           {modo === "login" ? "Entrar" : "Cadastrar"}
         </button>
+
+        {modo == "login" ? (
+          <p className="mt-4">
+            Novo por aqui?
+            <a onClick={() => setModo('cadastro')} className={`
+            text-lime-600 hover:text-lime-500 font-semibold cursor-pointer
+            `}>
+            &nbsp; &nbsp; Crie uma Conta Gratuitamente
+            </a>
+          </p>
+        ) : (
+          <p className="mt-4">
+          Já tem cadastro?
+          <a onClick={() => setModo('login')} className={`
+          text-lime-600 hover:text-lime-500 font-semibold cursor-pointer
+          `}>
+          &nbsp; &nbsp; Entre com suas credenciais
+          </a>
+        </p>
+        )}
       </div>
     </>
   );

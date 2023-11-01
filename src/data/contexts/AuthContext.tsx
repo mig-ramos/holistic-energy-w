@@ -10,6 +10,7 @@ type AuthContextData = {
   isAuthenticated: boolean;
   signIn: (credentials: SignInProps) => Promise<void>;
   signOut: () => void;
+  signUp: (credentials: SignUpProps) => Promise<void>;
 };
 
 type UserProps = {
@@ -50,8 +51,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>();
   const isAuthenticated = !!user;
 
-    useEffect(() => {
-
+  useEffect(() => {
     const { "@holistic.token": token } = parseCookies();
     // console.log(token)
     if (token) {
@@ -67,16 +67,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
             role,
           });
         })
-        
+
         .catch(() => {
           // Se deu erro deslogar o user.
-         signOut();
+          signOut();
         });
-       
-        setCarregando(false)
-        // console.log(user)
+
+      setCarregando(false);
+      // console.log(user)
     } else {
-      setCarregando(false)
+      setCarregando(false);
     }
   }, []);
 
@@ -106,7 +106,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       // passar para as proximas requisiçoes o nosso token
       // api.defaults.headers.common ['Authorization'] = `Bearer ${accessToken}`
       api.defaults.headers["Authorization"] = `Bearer ${token}`;
-    
+
       toast.success("Loagado com sucesso!");
 
       // Redirecionar o user para a página /index
@@ -115,9 +115,27 @@ export function AuthProvider({ children }: AuthProviderProps) {
       toast.error("Erro ao acessar!");
     }
   }
+
+  async function signUp({ name, email, password }: SignUpProps) {
+    // alert(name);
+    const response = await api.post("/users", {
+      name,
+      email,
+      password,
+    });
+
+    toast.success("Conta criada com sucesso!");
+
+    Router.push("/auth");
+    try {
+    } catch (err) {
+      toast.error("Erro ao cadastrar!");
+    }
+  }
+
   return (
     <AuthContext.Provider
-      value={{ user, carregando, isAuthenticated, signIn, signOut }}
+      value={{ user, carregando, isAuthenticated, signIn, signOut, signUp }}
     >
       {children}
     </AuthContext.Provider>

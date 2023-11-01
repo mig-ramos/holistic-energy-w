@@ -25,7 +25,7 @@ export default function Dashboard() {
       {isAuthenticated && user.role === "THERAPIST" && (
         <div>
           <Layout
-            titulo={"Painel do Terapeuta - função: " + user.role}
+            titulo={"Painel do Terapeuta: " + user.role}
             subtitulo={"Olá " + user.name}
           ></Layout>
         </div>
