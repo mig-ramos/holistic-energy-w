@@ -5,7 +5,7 @@ interface TituloProps {
   
   export default function Titulo(props: TituloProps) {
     return (
-      <div>
+      <div className={`mt-2 mx-2`}>
         <h1
           className={`
           font-black text-xl

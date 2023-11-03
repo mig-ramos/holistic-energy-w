@@ -32,7 +32,7 @@ export default function Dashboard() {
       )}
       {isAuthenticated && user.role === "CLIENT" && (
         <div>
-          <Layout titulo="Meu Painel" subtitulo={"Olá " + user.name}></Layout>
+          <Layout titulo="Seu Painel" subtitulo={"Olá " + user.name}></Layout>
         </div>
       )}
     </div>
