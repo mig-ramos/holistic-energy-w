@@ -10,8 +10,8 @@ export function Contact() {
   return (
     <section
       className={`
-    flex flex-col bg-lime-100 dark:bg-gray-800
-    dark:text-gray-200 w-full py-4
+    flex flex-col bg-lime-100 dark:bg-gray-600
+    dark:text-gray-300 w-full py-6
  `}
     >
       <div
@@ -22,10 +22,10 @@ export function Contact() {
         <div className={`w-full md:w-1/2  text-start`}>
           <div className={`border-s-8 border-green-500   p-4`}>
             <h3 className={`text-gray-600 text-xl`}>Redes sociais</h3>
-            <h2 className={`font-bold text-3xl`}>Onde fica!</h2>
+            <h2 className={`text-green-500 font-bold text-3xl`}>Onde fica!</h2>
           </div>
 
-          <div className={`text-xl text-gray-700 p-4`}>
+          <div className={`text-xl text-gray-700 dark:text-gray-300 p-4`}>
             <div className="flex items-center mt-2">
               <Image src={iconMap} width={32} alt="Mapa local" />
               <span className="ml-4">Av. Paulista, 000 - Bela Vista - SP</span>
@@ -54,9 +54,16 @@ export function Contact() {
             </div>
           </div>
         </div>
-        <div className={`flex flex-col justify-center items-center w-full md:w-1/2  p-4`}>
+        <div
+          className={`flex flex-col justify-center items-center w-full md:w-1/2  p-4`}
+        >
           <h2 className={`text-2xl font-semibold my-2`}>Local</h2>
-          <Image src={mapa} height={240} alt="Mapa local" />
+          <Image
+            src={mapa}
+            height={240}
+            alt="Mapa local"
+            className="rounded-xl+"
+          />
         </div>
       </div>
     </section>
