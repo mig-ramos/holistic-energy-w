@@ -62,7 +62,7 @@ export function Contact() {
             src={mapa}
             height={240}
             alt="Mapa local"
-            className="rounded-xl+"
+            className="rounded-xl"
           />
         </div>
       </div>
