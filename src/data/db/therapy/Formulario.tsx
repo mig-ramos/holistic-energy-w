@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { InputText } from './InputText';
-import Therapy from '../../data/db/therapy/Therapy';
-import Botao from './Botao';
-import { TextArea } from './TextArea';
+import { InputText } from '../../../components/ui/InputText';
+import Therapy from './Therapy';
+import Botao from '../../../components/ui/Botao';
+import { TextArea } from '../../../components/ui/TextArea';
 
 interface FormularioProps {
   therapy: Therapy

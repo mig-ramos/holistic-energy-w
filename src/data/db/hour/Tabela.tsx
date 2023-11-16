@@ -13,9 +13,9 @@ export default function Tabela(props: TabelaProps) {
   function renderizarCabecalho() {
     return (
       <tr>
-        <th className={`py-1 px-4`}>Código</th>
-        <th className={`py-1 px-4`}>Hora</th>
-        {exibirAcoes ? <th className={`px-1`}>Ações</th> : false}
+        <th className={`py-1 px-1`}>Código</th>
+        <th className={`py-1 px-1`}>Hora</th>
+        {exibirAcoes ? <th className={`px-1 text-center`}>Ações</th> : false}
       </tr>
     );
   }
@@ -27,8 +27,8 @@ export default function Tabela(props: TabelaProps) {
           key={hour.id}
           className={`${i % 2 === 0 ? "bg-gray-200 dark:bg-gray-600" : "bg-gray-300 dark:bg-gray-700"}`}
         >
-          <td className={`pr-4 pl-1`}>{hour.id}</td>
-          <td className={`pr-4 pl-1`}>{hour.hour}</td>
+          <td className={`px-1`}>{hour.id}</td>
+          <td className={`px-1`}>{hour.hour}</td>
           {exibirAcoes ? renderizarAcoes(hour) : false}
         </tr>
       );
@@ -64,7 +64,7 @@ export default function Tabela(props: TabelaProps) {
 
   return (
     <div className={`bg-green-100 rounded-xl my-1`}>
-      <table className={`w-full my-1`}>
+      <table className={`w-full my-1 mx-auto`}>
         <thead className={`bg-green-600 dark:bg-green-800 dark:text-white text-black text-left`}>{renderizarCabecalho()}</thead>
         <tbody>{renderizarDados()}</tbody>
       </table>

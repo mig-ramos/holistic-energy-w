@@ -22,15 +22,15 @@ export default function useHours() {
     }
 
     function selecionarHour(hour: Hour) {
-        // console.log(therapy.name);
+        // console.log(hour.hour);
         setHour(hour);
         exibirFormulario()
     }
 
     async function excluirHour(hour: Hour) {
-        console.log(hour.id);
+        // console.log(hour.id);
         await repo.excluir(hour);
-        // console.log(therapy)
+        // console.log(hour)
         listAll();
     }
 
@@ -41,12 +41,11 @@ export default function useHours() {
 
     async function salvarHour(hour: Hour) {
         await repo.salvar(hour);
-        console.log(hour);
+        // console.log(hour);
         listAll();
     }
 
-    return {
-        
+    return {        
         hour,
         hours,
         excluirHour,

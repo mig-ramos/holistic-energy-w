@@ -5,8 +5,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../../data/contexts/AuthContext";
 import useTherapies from "../../../data/hooks/useTherapies";
 import Botao from "../../../components/ui/Botao";
-import Tabela from "../../../components/ui/Tabela";
-import Formulario from "../../../components/ui/Formulario";
+import Tabela from "../../../data/db/therapy/Tabela";
+import Formulario from "../../../data/db/therapy/Formulario";
 
 export default function Therapies() {
   const { isAuthenticated, user } = useContext(AuthContext);

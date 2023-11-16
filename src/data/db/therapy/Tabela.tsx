@@ -1,4 +1,4 @@
-import Therapy from "../../data/db/therapy/Therapy";
+import Therapy from "./Therapy";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 
 interface TabelaProps {
