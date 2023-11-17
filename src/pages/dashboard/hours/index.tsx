@@ -5,12 +5,25 @@ import { useContext } from "react";
 import { AuthContext } from "../../../data/contexts/AuthContext";
 import useHours from "../../../data/hooks/useHours";
 import Botao from "../../../components/ui/Botao";
-
-import Tabela from "../../../data/db/hour/Tabela";
+import Tabela from "../../../components/ui/Tabela";
+// import Tabela from "../../../data/db/hour/Tabela";
 import Formulario from "../../../data/db/hour/Formulario";
 
 export default function Hours() {
   const { isAuthenticated, user } = useContext(AuthContext);
+
+  const config: ConfigTable = {
+    columns: [
+      {
+        property: "id",
+        name: "Código",
+      },
+      {
+        property: "hour",
+        name: "Hora",
+      },
+    ],
+  };
 
   const {
     hour,
@@ -42,10 +55,11 @@ export default function Hours() {
                       Novo Horário
                     </Botao>
 
-                    <Tabela                      
-                      hours={hours}                    
-                      hourSelecionada={selecionarHour}
-                      hourExcluida={excluirHour}
+                    <Tabela
+                      list={hours}
+                      config={config}
+                      itemSelecionada={selecionarHour}
+                      itemExcluida={excluirHour}
                     />
                   </div>
                 </>

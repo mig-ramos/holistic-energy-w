@@ -5,11 +5,28 @@ import { useContext } from "react";
 import { AuthContext } from "../../../data/contexts/AuthContext";
 import useTherapies from "../../../data/hooks/useTherapies";
 import Botao from "../../../components/ui/Botao";
-import Tabela from "../../../data/db/therapy/Tabela";
+import Tabela from "../../../components/ui/Tabela";
 import Formulario from "../../../data/db/therapy/Formulario";
 
 export default function Therapies() {
   const { isAuthenticated, user } = useContext(AuthContext);
+
+  const config: ConfigTable = {
+    columns: [
+      {
+        property: "id",
+        name: "Código",
+      },
+      {
+        property: "name",
+        name: "Terapia",
+      },
+      {
+        property: "description",
+        name: "Descrição",
+      },
+    ],
+  };
 
   const {
     therapy,
@@ -42,9 +59,10 @@ export default function Therapies() {
                     </Botao>
 
                     <Tabela
-                      therapies={therapies}
-                      therapySelecionada={selecionarTherapy}
-                      therapyExcluida={excluirTherapy}
+                      list={therapies}
+                      config={config}
+                      itemSelecionada={selecionarTherapy}
+                      itemExcluida={excluirTherapy}
                     />
                   </div>
                 </>
